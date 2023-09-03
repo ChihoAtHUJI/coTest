@@ -1,13 +1,18 @@
+require 'json'
+
 class Api::V1::AuthController < ApplicationController
   def signin
-    user = User.find_by(email: params[:email])
-    puts 'hello'
+
+    email = params['auth']['email']
+    password = params['auth']['password']
 
 
-    if user && user.authenticate(params[:password])
-      puts 'hello'
-      token = generate_token(user.id)
-      render json: user_json(user, token), status: 200
+
+    @user = User.find_by(email: email)
+
+    if @user && @user.authenticate(password)
+      token = generate_token(@user.id)
+      render json: user_json(@user, token), status: 200
     else
       render json:{
         error: 'Invalid email or password'
@@ -31,7 +36,7 @@ class Api::V1::AuthController < ApplicationController
         attributes:{
           token: token,
           email: user.email,
-          name: user.name,
+          name: user.firstName + " " + user.lastName,
           country: user.country,
           createdAt: user.created_at,
           updatedAt: user.updated_at

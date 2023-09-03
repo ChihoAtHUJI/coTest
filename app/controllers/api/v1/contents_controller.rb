@@ -1,6 +1,6 @@
 class Api::V1::ContentsController < ApplicationController
   def index
-    contents = Content.all
+    content = Content.all
     render json: content, status: 200
   end
 
@@ -55,5 +55,9 @@ class Api::V1::ContentsController < ApplicationController
       :title,
       :body
                                     ])
+  end
+
+  def user_json_content
+
   end
 end
