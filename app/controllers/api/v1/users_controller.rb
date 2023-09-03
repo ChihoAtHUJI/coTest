@@ -19,4 +19,5 @@ class Api::V1::UsersController < ApplicationController
     params.permit(:firstName, :lastName, :email, :password, :country)
   end
 
+
 end

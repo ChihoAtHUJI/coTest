@@ -1,13 +1,14 @@
 class Api::V1::ContentsController < ApplicationController
   def index
-    content = Content.all
-    render json: content, status: 200
+    contents = Content.all
+    puts "hello"
+    render json: {data: contents.map {|content| users_json(content)}}, status: 200
   end
 
   def show
     content = Content.find_by(id: params[:id])
     if content
-      render json: content, status: 200
+      render json: user_json(content), status: 200
     else
       render json: {
         error: "Content not found"
@@ -21,7 +22,7 @@ class Api::V1::ContentsController < ApplicationController
       body: cont_params[:body]
     )
     if content.save
-      render json: content, status: 200
+      render json: user_json(content), status: 200
     else
       render json: {
         error: "Error Creating.."
@@ -57,7 +58,33 @@ class Api::V1::ContentsController < ApplicationController
                                     ])
   end
 
-  def user_json_content
 
+  def user_json(content)
+    {
+      data:{
+        id: content.id,
+        type: 'content',
+        attributes:{
+          title: content.title,
+          body: content.body,
+          createdAt: content.created_at,
+          updatedAt: content.updated_at
+        }
+      }
+    }
+  end
+
+  def users_json(content)
+    {
+    id: content.id,
+    type: 'content',
+    attributes:{
+
+      title: content.title,
+      body: content.body,
+      createdAt: content.created_at,
+      updatedAt: content.updated_at
+     }
+    }
   end
 end
