@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :contents, only: [:index, :show, :create, :update, :destroy]
-
-      get 'contents/index'
-      get 'contents/show'
-      get 'contents/create'
-      get 'contents/update'
-      get 'contents/destroy'
+      resources :contents, only: [:show, :create, :update, :destroy], path: 'contents'
+      get 'content', to: 'contents#index'
+      #
+      # get 'content/index'
+      # get 'contents/show'
+      # get 'contents/create'
+      # get 'contents/update'
+      # get 'contents/destroy'
 
       post 'users/signup', to: 'users#signup'
 

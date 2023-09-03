@@ -34,7 +34,7 @@ class Api::V1::ContentsController < ApplicationController
     content = Content.find_by(id: params[:id])
     if content
       content.update(title: params[:title], body: params[:body])
-      render json: "Content Record Updated Successfully"
+      render json: user_json(content)
     else
       render json: {
         error: "Content Not Found"
@@ -46,7 +46,11 @@ class Api::V1::ContentsController < ApplicationController
     content = Content.find_by(id: params[:id])
     if content
       content.destroy
-      render json: "Content has been deleted"
+      render json: {message: "Deleted"}
+    else
+      render json: {
+        error: "Content not exists"
+      }
     end
   end
 
