@@ -25,7 +25,7 @@ class Api::V1::ContentsController < ApplicationController
       render json: user_json(content), status: 200
     else
       render json: {
-        error: "Error Creating.."
+        error: "Error Creating. You need to write title and body."
       }
     end
   end
