@@ -7,5 +7,4 @@ But
 
 * Succeed running the dokerfile but couldn't do docker-compose.yml
 
-* Also tried to use Rspec to do the unit test.
-* I have succeed to test the content model but not controller of the content.
+* Also tried to use Rspec to do the unit test.(model: done, controller: not done)
