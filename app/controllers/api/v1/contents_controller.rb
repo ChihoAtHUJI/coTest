@@ -1,7 +1,6 @@
 class Api::V1::ContentsController < ApplicationController
   def index
     contents = Content.all
-    puts "hello"
     render json: {data: contents.map {|content| users_json(content)}}, status: 200
   end
 

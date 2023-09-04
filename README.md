@@ -1,28 +1,11 @@
 # README
 
 
+* I have passed all the tests in 'Postman' using rails.
+But
+* I have tried to connect the content with userId. But I couldn't figure it out.
 
-I have finished all the tasks
+* Succeed running the dokerfile but couldn't do docker-compose.yml
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Also tried to use Rspec to do the unit test.
+* I have succeed to test the content model but not controller of the content.

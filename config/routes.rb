@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :contents, only: [:show, :create, :update, :destroy], path: 'contents'
-      get 'content', to: 'contents#index'
+
+      # Endpoint of Get Contents is /api/v1/contents
+      get 'contents', to: 'contents#index'
 
       post 'users/signup', to: 'users#signup'
 
